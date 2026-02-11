@@ -19,6 +19,7 @@
 *PVS-Studio*
 examples/output
 **/tests.suppress
+*.qtcreator
 
 examples/build/cmake/build_llvm.sh
 examples/build/cmake/build_llvm
