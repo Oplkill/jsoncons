@@ -1541,7 +1541,7 @@ namespace jsonschema {
     public:
         maximum_validator(const Json& schema, const uri& schema_location, const std::string& custom_message, const Json& value)
             : keyword_validator<Json>("maximum", schema, schema_location, custom_message), value_(value),
-              message_{"Maximum value is " + value.template as<std::string>() + " but found"}
+              message_{"Maximum value is " + value.to_string() + " but found"}
         {
         }
 
@@ -1559,10 +1559,10 @@ namespace jsonschema {
             {
                 if (instance.template as<int64_t>() > value_.template as<int64_t>())
                 {
-                walk_result result = reporter.error(this->make_validation_message(
-                    this_context.eval_path(),
-                    instance_location, 
-                        message_ + instance.template as<std::string>()));
+                    walk_result result = reporter.error(this->make_validation_message(
+                        this_context.eval_path(),
+                        instance_location,
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1576,7 +1576,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1594,7 +1594,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1608,7 +1608,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1637,7 +1637,7 @@ namespace jsonschema {
     public:
         exclusive_maximum_validator(const Json& schema, const uri& schema_location, const std::string& custom_message, const Json& value)
             : keyword_validator<Json>("exclusiveMaximum", schema, schema_location, custom_message), value_(value),
-              message_{"Exclusive maximum value is " + value.template as<std::string>() + " but found "}
+              message_{"Exclusive maximum value is " + value.to_string() + " but found "}
         {
         }
 
@@ -1658,7 +1658,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1672,7 +1672,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1690,7 +1690,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1704,7 +1704,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1733,7 +1733,7 @@ namespace jsonschema {
     public:
         minimum_validator(const Json& schema, const uri& schema_location, const std::string& custom_message, const Json& value)
             : keyword_validator<Json>("minimum", schema, schema_location, custom_message), value_(value),
-              message_{"Minimum value is " + value.template as<std::string>() + " but found "}
+              message_{"Minimum value is " + value.to_string() + " but found "}
         {
         }
 
@@ -1754,7 +1754,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1768,7 +1768,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1786,7 +1786,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1800,7 +1800,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1829,7 +1829,7 @@ namespace jsonschema {
     public:
         exclusive_minimum_validator(const Json& schema, const uri& schema_location, const std::string& custom_message, const Json& value)
             : keyword_validator<Json>("exclusiveMinimum", schema, schema_location, custom_message), value_(value),
-              message_{"Exclusive minimum value is " + value.template as<std::string>() + " but found "}
+              message_{"Exclusive minimum value is " + value.to_string() + " but found "}
         {
         }
 
@@ -1850,7 +1850,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1864,7 +1864,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1882,7 +1882,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1896,7 +1896,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        message_ + instance.template as<std::string>()));
+                        message_ + instance.to_string()));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -1949,7 +1949,7 @@ namespace jsonschema {
                     walk_result result = reporter.error(this->make_validation_message(
                         this_context.eval_path(),
                         instance_location, 
-                        instance.template as<std::string>() + " is not a multiple of " + std::to_string(value_)));
+                        instance.to_string() + " is not a multiple of " + std::to_string(value_)));
                     if (result == walk_result::abort)
                     {
                         return result;
@@ -2304,7 +2304,7 @@ namespace jsonschema {
                 walk_result result = reporter.error(this->make_validation_message(
                     this_context.eval_path(),
                     instance_location, 
-                    "'" + instance.template as<std::string>() + "' is not a valid enum value."));
+                    "'" + instance.to_string() + "' is not a valid enum value."));
                 if (result == walk_result::abort)
                 {
                     return result;
